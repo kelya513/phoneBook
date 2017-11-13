@@ -1,4 +1,4 @@
-import { Person } from './phoneBook/person.model';
+import { Person } from './phoneBook/shared/person.model';
 
 export const PERSONS: Person[] = [
   {

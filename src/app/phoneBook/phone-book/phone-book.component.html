@@ -1,4 +1,5 @@
 <div class="container">
+  <app-phone-book-view [person]="selectedPerson"></app-phone-book-view>
   <h2>My contacts</h2>
   <table class="table table-hover">
     <thead>
@@ -13,7 +14,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr  *ngFor="let person of persons" class="detail-click">
+      <tr  *ngFor="let person of persons" class="detail-click"
+           [class.selected]="person === selectedPerson" (click)="onSelect(person)">
         <td class="hide">{{person.id}}</td>
         <td>{{person.firstName}}</td>
         <td>{{person.secondName}}</td>

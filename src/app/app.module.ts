@@ -6,19 +6,23 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { AppComponent } from './app.component';
 import { PhoneBookComponent } from './phoneBook/phone-book/phone-book.component';
-
+import { PhoneBookViewComponent } from './phoneBook/phone-book-view/phone-book-view.component';
+import { PhonebookService } from './phoneBook/shared/phonebook.service';
+import { PhoneBookRoutingModule } from './phoneBook/shared/phonebook.routes.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PhoneBookComponent
+    PhoneBookComponent,
+    PhoneBookViewComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    PhoneBookRoutingModule
   ],
-  providers: [],
+  providers: [PhonebookService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

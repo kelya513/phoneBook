@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Person } from '../person.model';
-import { PERSONS } from '../../mock-persons';
+import { Person } from '../shared/person.model';
+
+import { PhonebookService } from '../shared/phonebook.service';
 
 @Component({
   selector: 'app-phone-book',
@@ -9,11 +10,23 @@ import { PERSONS } from '../../mock-persons';
 })
 export class PhoneBookComponent implements OnInit {
 
-  persons: Person[] = PERSONS;
+  persons: Person[];
 
-  constructor() { }
+  selectedPerson: Person;
+
+  constructor(private phoneBookService: PhonebookService) { }
 
   ngOnInit() {
+    this.getPersons();
+  }
+
+  onSelect(person: Person): void {
+    this.selectedPerson = person;
+  }
+
+  getPersons(): void {
+    this.phoneBookService.fetchAll()
+      .subscribe(persons => this.persons = persons);
   }
 
 }
