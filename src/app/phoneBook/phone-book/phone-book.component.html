@@ -1,5 +1,4 @@
 <div class="container">
-  <app-phone-book-view [person]="selectedPerson"></app-phone-book-view>
   <h2>My contacts</h2>
   <table class="table table-hover">
     <thead>
@@ -23,7 +22,7 @@
         <td>{{person.adress}}</td>
         <td>{{person.createAt | date}}</td>
         <td class="detail-icon">
-          <a href="#" class="view-detail">
+          <a routerLink="/phonebook/view/{{person.id}}" class="view-detail">
             <i class="fa fa-eye" aria-hidden="true"></i>
           </a>
           <a href="#" class="edit-detail">

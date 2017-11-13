@@ -17,14 +17,14 @@ export class PhoneBookComponent implements OnInit {
   constructor(private phoneBookService: PhonebookService) { }
 
   ngOnInit() {
-    this.getPersons();
+    this.getContacts();
   }
 
   onSelect(person: Person): void {
     this.selectedPerson = person;
   }
 
-  getPersons(): void {
+  getContacts(): void {
     this.phoneBookService.fetchAll()
       .subscribe(persons => this.persons = persons);
   }

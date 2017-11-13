@@ -16,11 +16,22 @@ export class PhoneBookViewComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private PhonebookService: PhonebookService,
+    private phonebookService: PhonebookService,
     private location: Location
   ) { }
 
   ngOnInit() {
+    this.getContact();
+  }
+
+  getContact(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.phonebookService.view(id)
+      .subscribe(item => this.person = item);
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
 }
