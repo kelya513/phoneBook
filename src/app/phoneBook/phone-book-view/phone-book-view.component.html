@@ -1,10 +1,47 @@
 <div *ngIf="person" class="col-12">
   <h2>{{ person.firstName | uppercase }} Details</h2>
-  <div><span>id: </span>{{person.id}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="person.phone" placeholder="phone">
-    </label>
+  <div class="row">
+    <div class="col-3">
+      <span>id: </span>
+    </div>
+    <div class="col-9">
+      {{person.id}}
+    </div>
   </div>
-  <button (click)="goBack()">go back</button>
+  <div class="row">
+    <div class="col-3">
+      <span>Name: </span>
+    </div>
+    <div class="col-9">
+      {{person.firstName + person.secondName}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3">
+      <span>phone: </span>
+    </div>
+    <div class="col-9">
+      {{person.phone}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3">
+      <span>adress: </span>
+    </div>
+    <div class="col-9">
+      {{person.adress}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3">
+      <span>createAt: </span>
+    </div>
+    <div class="col-9">
+      {{person.createAt | date}}
+    </div>
+  </div>
 </div>
+<div class="row">
+  <button (click)="goBack()" class="btn btn-primary"  style="margin-left: auto;">go back</button>
+</div>
+
