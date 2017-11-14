@@ -38,6 +38,8 @@ export class PhoneBookCreateComponent implements OnInit {
       .subscribe(item => {
         this.persons.push(item);
       });
+
+    this.goBack();
   }
 
   getContacts(): void {
