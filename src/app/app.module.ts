@@ -7,37 +7,27 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 
-import { PhonebookPipe } from './phoneBook/shared/phonebook.pipe';
-
 import { PhoneBookRoutingModule } from './phoneBook/shared/phonebook.routes.module';
+import { PhonebookModule } from './phoneBook/shared/phonebook.module';
 
 import { AppComponent } from './app.component';
-import { PhoneBookComponent } from './phoneBook/phone-book/phone-book.component';
-import { PhoneBookViewComponent } from './phoneBook/phone-book-view/phone-book-view.component';
-import { PhonebookService } from './phoneBook/shared/phonebook.service';
-import { PhoneBookCreateComponent } from './phoneBook/phone-book-create/phone-book-create.component';
-import { PhoneBookEditComponent } from './phoneBook/phone-book-edit/phone-book-edit.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    PhoneBookComponent,
-    PhoneBookViewComponent,
-    PhoneBookCreateComponent,
-    PhoneBookEditComponent,
-    PhonebookPipe
+    AppComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AngularFontAwesomeModule,
+    PhonebookModule,
     PhoneBookRoutingModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
     )
   ],
-  providers: [PhonebookService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
