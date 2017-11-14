@@ -13,6 +13,7 @@ import { PhonebookService } from '../shared/phonebook.service';
 export class PhoneBookCreateComponent implements OnInit {
 
   item: Person = new Person( );
+  persons: Person[];
 
   constructor(
     private route: ActivatedRoute,
@@ -21,6 +22,7 @@ export class PhoneBookCreateComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.getContacts();
   }
 
   goBack(): void {
@@ -28,7 +30,19 @@ export class PhoneBookCreateComponent implements OnInit {
   }
 
   add(): void {
-    console.log(this.item)
+    console.log(this.item);
+
+    this.item.createAt = new Date();
+
+    this.phonebookService.create(this.item)
+      .subscribe(item => {
+        this.persons.push(item);
+      });
+  }
+
+  getContacts(): void {
+    this.phonebookService.fetchAll()
+      .subscribe(persons => this.persons = persons);
   }
 
 

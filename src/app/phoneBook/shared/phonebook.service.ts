@@ -38,12 +38,19 @@ export class PhonebookService {
     );
   }
 
-
   /** PUT: update on the server */
   edit(item: Person, id): Observable<any> {
     return this.http.put(this.contactsUrl, item, httpOptions).pipe(
       tap(_ => console.log(`updated contact id=${id}`)),
       catchError(this.handleError<any>('edit contact'))
+    );
+  }
+
+  /** POST: add a new hero to the server */
+  create(item: Person): Observable<Person> {
+    return this.http.post<Person>(this.contactsUrl, item, httpOptions).pipe(
+      tap((item: Person) => console.log(`added id=${item.id}`)),
+      catchError(this.handleError<Person>('create'))
     );
   }
 
