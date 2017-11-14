@@ -7,14 +7,14 @@ export class InMemoryDataService implements InMemoryDbService {
         id: 1,
         firstName: 'fir1',
         secondName: 'sec1',
-        phone: 'phone1',
+        phone: '1454444',
         adress: 'adress1',
         createAt: new Date()
       },{
         id: 2,
         firstName: 'fir2',
         secondName: 'sec2',
-        phone: 'phone2',
+        phone: '1487451',
         adress: 'adress2',
         createAt: new Date()
       },
@@ -22,7 +22,7 @@ export class InMemoryDataService implements InMemoryDbService {
         id: 3,
         firstName: 'fir3',
         secondName: 'sec3',
-        phone: 'phone3',
+        phone: '548765',
         adress: 'adress3',
         createAt: new Date()
       },
@@ -30,7 +30,7 @@ export class InMemoryDataService implements InMemoryDbService {
         id: 4,
         firstName: 'fir4',
         secondName: 'sec4',
-        phone: 'phone4',
+        phone: '4542154',
         adress: 'adress4',
         createAt: new Date()
       },
@@ -38,7 +38,7 @@ export class InMemoryDataService implements InMemoryDbService {
         id: 5,
         firstName: 'fir5',
         secondName: 'sec5',
-        phone: 'phone5',
+        phone: '4587216',
         adress: 'adress5',
         createAt: new Date()
       },
@@ -46,7 +46,7 @@ export class InMemoryDataService implements InMemoryDbService {
         id: 6,
         firstName: 'fir6',
         secondName: 'sec6',
-        phone: 'phone6',
+        phone: '5465745',
         adress: 'adress6',
         createAt: new Date()
       },

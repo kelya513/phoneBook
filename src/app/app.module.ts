@@ -7,6 +7,8 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 
+import { PhonebookPipe } from './phoneBook/shared/phonebook.pipe';
+
 import { PhoneBookRoutingModule } from './phoneBook/shared/phonebook.routes.module';
 
 import { AppComponent } from './app.component';
@@ -22,7 +24,8 @@ import { PhoneBookEditComponent } from './phoneBook/phone-book-edit/phone-book-e
     PhoneBookComponent,
     PhoneBookViewComponent,
     PhoneBookCreateComponent,
-    PhoneBookEditComponent
+    PhoneBookEditComponent,
+    PhonebookPipe
   ],
   imports: [
     BrowserModule,
