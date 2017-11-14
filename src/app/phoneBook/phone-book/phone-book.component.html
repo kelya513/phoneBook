@@ -1,5 +1,9 @@
 <div class="container">
-  <h2>My contacts</h2>
+  <div class="row">
+    <h2>My contacts</h2>
+    <button (click)="goCreate()" class="btn btn-primary" style="margin-left: auto">Add contact</button>
+  </div>
+
   <table class="table table-hover">
     <thead>
       <tr>
@@ -25,10 +29,10 @@
           <a routerLink="/phonebook/view/{{person.id}}" class="view-detail">
             <i class="fa fa-eye" aria-hidden="true"></i>
           </a>
-          <a href="#" class="edit-detail">
+          <a routerLink="/phonebook/edit/{{person.id}}" class="edit-detail">
             <i class="fa fa-pencil" aria-hidden="true"></i>
           </a>
-          <a href="#" class="delete-detail">
+          <a (click)="deleteContacts(person)" class="delete-detail">
             <i class="fa fa-trash" aria-hidden="true"></i>
           </a>
         </td>

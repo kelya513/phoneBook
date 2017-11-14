@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Person } from '../shared/person.model';
+import {Router} from '@angular/router';
 
+import { Person } from '../shared/person.model';
 import { PhonebookService } from '../shared/phonebook.service';
 
 @Component({
@@ -14,7 +15,10 @@ export class PhoneBookComponent implements OnInit {
 
   selectedPerson: Person;
 
-  constructor(private phoneBookService: PhonebookService) { }
+  constructor(
+    private phoneBookService: PhonebookService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.getContacts();
@@ -24,9 +28,18 @@ export class PhoneBookComponent implements OnInit {
     this.selectedPerson = person;
   }
 
+  goCreate(): void{
+    this.router.navigate(['/phonebook/create']);
+  }
+
   getContacts(): void {
     this.phoneBookService.fetchAll()
       .subscribe(persons => this.persons = persons);
+  }
+
+  deleteContacts(person: Person): void {
+    this.persons = this.persons.filter(item => item !== person);
+    this.phoneBookService.delete(person.id).subscribe();
   }
 
 }

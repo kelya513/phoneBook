@@ -13,12 +13,16 @@ import { AppComponent } from './app.component';
 import { PhoneBookComponent } from './phoneBook/phone-book/phone-book.component';
 import { PhoneBookViewComponent } from './phoneBook/phone-book-view/phone-book-view.component';
 import { PhonebookService } from './phoneBook/shared/phonebook.service';
+import { PhoneBookCreateComponent } from './phoneBook/phone-book-create/phone-book-create.component';
+import { PhoneBookEditComponent } from './phoneBook/phone-book-edit/phone-book-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PhoneBookComponent,
-    PhoneBookViewComponent
+    PhoneBookViewComponent,
+    PhoneBookCreateComponent,
+    PhoneBookEditComponent
   ],
   imports: [
     BrowserModule,

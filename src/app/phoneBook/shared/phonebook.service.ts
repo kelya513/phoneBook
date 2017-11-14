@@ -28,17 +28,34 @@ export class PhonebookService {
       );
   }
 
-  
 
-  /** GET hero by id. Will 404 if id not found */
+  /** GET by id. Will 404 if id not found */
   view(id: number): Observable<Person> {
     const url = `${this.contactsUrl}/${id}`;
     return this.http.get<Person>(url).pipe(
       tap(_ => console.log(`fetched contact id=${id}`)),
-      catchError(this.handleError<Person>(`view id=${id}`))
+      catchError(this.handleError<Person>(`fetched contact id=${id}`))
     );
   }
 
+
+  /** PUT: update on the server */
+  edit(item: Person, id): Observable<any> {
+    return this.http.put(this.contactsUrl, item, httpOptions).pipe(
+      tap(_ => console.log(`updated contact id=${id}`)),
+      catchError(this.handleError<any>('edit contact'))
+    );
+  }
+
+  /** DELETE: delete the from the server */
+  delete (id: number): Observable<Person> {
+    const url = `${this.contactsUrl}/${id}`;
+
+    return this.http.delete<Person>(url, httpOptions).pipe(
+      tap(_ => console.log(`deleted id=${id}`)),
+      catchError(this.handleError<Person>('deletePerson'))
+    );
+  }
 
   /**
    * Handle Http operation that failed.
