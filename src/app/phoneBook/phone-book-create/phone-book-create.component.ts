@@ -32,7 +32,7 @@ export class PhoneBookCreateComponent implements OnInit {
   add(): void {
     console.log(this.item);
 
-    this.item.createdAt = (new Date().toLocaleString());
+    this.item.createdAt = Date.now().toString();
 
     this.phonebookService.create(this.item)
       .subscribe(item => {

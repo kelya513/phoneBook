@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { Observable } from 'rxjs/Observable';
+// import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import 'rxjs/add/operator/map';
 
 import { Person } from '../shared/person.model';
 
@@ -16,15 +18,23 @@ const httpOptions = {
 export class PhonebookService {
 
   private contactsUrl = 'api/phones';  // URL to web api
+  //http://589b1131bc99bf120037b98c.mockapi.io/api/v1/phones
 
   constructor(private http: HttpClient) { }
 
-  fetchAll(): Observable<Person[]> {
-    return this.http.get<Person[]>(this.contactsUrl)
+  fetchAll(): Observable<any> {
+    return this.http.get(this.contactsUrl)
       .pipe(
-        tap(persons => console.log(`fetchAll`)),
+        tap(this.extractData),
         catchError(this.handleError('fetchAll', []))
       );
+  }
+
+  private extractData(res) {
+    let body : Person[] = <Person[]>res;
+    body.forEach(item => item.createdAtM = isNaN(Number(item.createdAt)) ? '' : item.createdAt);
+    console.log(body);
+    return body;
   }
 
 
