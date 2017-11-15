@@ -6,7 +6,6 @@ import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { Person } from '../shared/person.model';
-import { PERSONS } from '../../mock-persons';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -16,7 +15,7 @@ const httpOptions = {
 @Injectable()
 export class PhonebookService {
 
-  private contactsUrl = 'api/persons';  // URL to web api
+  private contactsUrl = 'api/phones';  // URL to web api
 
   constructor(private http: HttpClient) { }
 

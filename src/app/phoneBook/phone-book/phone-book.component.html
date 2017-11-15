@@ -11,8 +11,8 @@
         <th>firstName</th>
         <th>secondName</th>
         <th>phone</th>
-        <th>adress</th>
-        <th>createAt</th>
+        <th>address</th>
+        <th>createdAt</th>
         <th>function</th>
       </tr>
     </thead>
@@ -23,8 +23,8 @@
         <td>{{person.firstName}}</td>
         <td>{{person.secondName}}</td>
         <td>{{person.phone | phonebook}}</td>
-        <td>{{person.adress}}</td>
-        <td>{{person.createAt | date}}</td>
+        <td>{{person.address}}</td>
+        <td>{{person.createdAt}}</td>
         <td class="detail-icon">
           <a routerLink="/phonebook/view/{{person.id}}" class="view-detail">
             <i class="fa fa-eye" aria-hidden="true"></i>
