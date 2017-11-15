@@ -5,4 +5,10 @@ export class Person {
   phone: string;
   address: string;
   createdAt: string;
+
+  constructor(params?: any) {
+    for (let key in params) {
+      (<any>this)[key] = params[key];
+    }
+  }
 }

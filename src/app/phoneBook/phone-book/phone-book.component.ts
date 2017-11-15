@@ -39,7 +39,7 @@ export class PhoneBookComponent implements OnInit {
 
   deleteContacts(person: Person): void {
     this.persons = this.persons.filter(item => item !== person);
-    this.phoneBookService.delete(person.id).subscribe();
+    this.phoneBookService.delete(person.id).subscribe(person => this.getContacts());
   }
 
 }
