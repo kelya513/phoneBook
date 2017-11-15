@@ -17,8 +17,7 @@ const httpOptions = {
 @Injectable()
 export class PhonebookService {
 
-  private contactsUrl = 'api/phones';  // URL to web api
-  //http://589b1131bc99bf120037b98c.mockapi.io/api/v1/phones
+  private contactsUrl = 'http://589b1131bc99bf120037b98c.mockapi.io/api/v1/phones';
 
   constructor(private http: HttpClient) { }
 
