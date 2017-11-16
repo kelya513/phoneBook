@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule }    from '@angular/forms';
+import { ReactiveFormsModule }   from '@angular/forms';
 
 import { PhoneBookComponent } from './../phone-book/phone-book.component';
 import { PhoneBookViewComponent } from './../phone-book-view/phone-book-view.component';
@@ -15,7 +16,8 @@ import { PhonebookPipe } from './phonebook.pipe';
   imports: [
     CommonModule,
     PhoneBookRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     PhoneBookComponent,

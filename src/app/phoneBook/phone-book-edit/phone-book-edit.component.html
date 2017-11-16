@@ -1,45 +1,39 @@
-<div *ngIf="person" class="col-12">
-  <h2>{{ person.firstName +' '+ person.secondName | uppercase }} Details</h2>
-  <div class="row">
-    <div class="col-12">
-      <span>id: </span> {{person.id}}
+<form [formGroup]="myForm" novalidate (ngSubmit)="submit()">
+  <div class="form-group">
+    <label>firstName</label>
+    <input class="form-control" name="firstName" formControlName="firstName" />
+
+    <div class="alert alert-danger"
+         *ngIf="myForm.controls['firstName'].invalid && myForm.controls['firstName'].touched">
+      Не указано имя
     </div>
   </div>
-  <div class="row">
-    <div class="col-12">
-      <span>createdAt: </span> {{person.createdAt}}
+  <div class="form-group">
+    <label>secondName</label>
+    <input class="form-control" name="secondName" formControlName="secondName" />
+
+  </div>
+  <div class="form-group">
+    <label>phone</label>
+    <input class="form-control" name="phone" formControlName="phone" />
+
+    <div class="alert alert-danger"
+         *ngIf="myForm.controls['phone'].invalid && myForm.controls['phone'].touched">
+      Не указан телефон
     </div>
   </div>
-  <div class="row">
-    <div class="col-12">
-      <label>firstName:
-        <input [(ngModel)]="person.firstName" placeholder="firstName"/>
-      </label>
-    </div>
+  <div class="form-group">
+    <label>address</label>
+    <input class="form-control" name="address" formControlName="address" />
+
   </div>
-  <div class="row">
-    <div class="col-12">
-      <label>secondName:
-        <input [(ngModel)]="person.secondName" placeholder="secondName"/>
-      </label>
-    </div>
+  <div class="form-group">
+    <label>createdAt</label>
+    <input class="form-control" name="createdAt" formControlName="createdAt" />
   </div>
-  <div class="row">
-    <div class="col-12">
-      <label>phone:
-        <input [(ngModel)]="person.phone" placeholder="phone"/>
-      </label>
-    </div>
+  <div class="form-group">
+    <button class="btn btn-default" [disabled]="myForm.invalid">
+      save
+    </button>
   </div>
-  <div class="row">
-    <div class="col-12">
-      <label>address:
-        <input [(ngModel)]="person.address" placeholder="address"/>
-      </label>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <button *ngIf="person" (click)="save()" class="btn btn-primary"  style="margin-left: auto;">save</button>
-  <button (click)="goBack()" class="btn btn-primary" style="margin-left: 5px;">go back</button>
-</div>
+</form>
