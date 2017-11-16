@@ -1,11 +1,21 @@
-<div class="jumbotron text-center">
-  <h1>{{title}}</h1>
-</div>
+<div class="wrapper">
 
-<div class="container">
-  <div class="row">
-    <div class="col-12">
-      <router-outlet></router-outlet>
+  <header class="header">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" routerLink="/phonebook">{{title}}</a>
+    </nav>
+  </header>
+
+
+  <div class="content">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
     </div>
   </div>
+
+
 </div>
