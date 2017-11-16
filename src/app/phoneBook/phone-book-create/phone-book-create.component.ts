@@ -12,8 +12,7 @@ import { PhonebookService } from '../shared/phonebook.service';
 })
 export class PhoneBookCreateComponent implements OnInit {
 
-  item: Person = new Person( );
-  persons: Person[];
+  default: number = -1;
 
   constructor(
     private route: ActivatedRoute,
@@ -21,31 +20,6 @@ export class PhoneBookCreateComponent implements OnInit {
     private location: Location
   ) { }
 
-  ngOnInit() {
-    this.getContacts();
-  }
-
-  goBack(): void {
-    this.location.back();
-  }
-
-  add(): void {
-    console.log(this.item);
-
-    this.item.createdAt = Date.now().toString();
-
-    this.phonebookService.create(this.item)
-      .subscribe(item => {
-        this.persons.push(item);
-      });
-
-    this.goBack();
-  }
-
-  getContacts(): void {
-    this.phonebookService.fetchAll()
-      .subscribe(persons => this.persons = persons);
-  }
-
+  ngOnInit() {}
 
 }

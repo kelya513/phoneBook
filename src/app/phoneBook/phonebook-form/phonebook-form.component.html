@@ -1,0 +1,37 @@
+<form [formGroup]="myForm" novalidate (ngSubmit)="submit()">
+  <div class="form-group">
+    <label>firstName</label>
+    <input class="form-control" name="firstName" formControlName="firstName" />
+
+    <div class="alert alert-danger"
+         *ngIf="myForm.controls['firstName'].invalid && myForm.controls['firstName'].touched">
+      Не указано имя
+    </div>
+  </div>
+  <div class="form-group">
+    <label>secondName</label>
+    <input class="form-control" name="secondName" formControlName="secondName" />
+  </div>
+  <div class="form-group">
+    <label>phone</label>
+    <input class="form-control" name="phone" formControlName="phone" />
+
+    <div class="alert alert-danger"
+         *ngIf="myForm.controls['phone'].invalid && myForm.controls['phone'].touched">
+      Не указан телефон
+    </div>
+  </div>
+  <div class="form-group">
+    <label>address</label>
+    <input class="form-control" name="address" formControlName="address" />
+
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-default" [disabled]="myForm.invalid">
+      save
+    </button>
+    <button type="button" class="btn btn-primary" (click)="goBack()">
+      cancel
+    </button>
+  </div>
+</form>

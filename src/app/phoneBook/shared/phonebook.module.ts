@@ -8,6 +8,8 @@ import { PhoneBookViewComponent } from './../phone-book-view/phone-book-view.com
 import { PhoneBookCreateComponent } from './../phone-book-create/phone-book-create.component';
 import { PhoneBookEditComponent } from './../phone-book-edit/phone-book-edit.component';
 
+import { PhonebookFormComponent } from './../phonebook-form/phonebook-form.component';
+
 import { PhonebookService } from './phonebook.service';
 import { PhoneBookRoutingModule } from './phonebook.routes.module';
 import { PhonebookPipe } from './phonebook.pipe';
@@ -24,14 +26,16 @@ import { PhonebookPipe } from './phonebook.pipe';
     PhoneBookViewComponent,
     PhoneBookCreateComponent,
     PhoneBookEditComponent,
-    PhonebookPipe
+    PhonebookPipe,
+    PhonebookFormComponent
   ],
   declarations: [
     PhoneBookComponent,
     PhoneBookViewComponent,
     PhoneBookCreateComponent,
     PhoneBookEditComponent,
-    PhonebookPipe
+    PhonebookPipe,
+    PhonebookFormComponent
   ],
   providers: [PhonebookService]
 })

@@ -23,6 +23,15 @@ export class PhonebookService {
 
   fetchAll(): Observable<any> {
     return this.http.get(this.contactsUrl)
+          .pipe(
+              tap(this.extractData)
+           );
+  }
+
+  private extractData(res) {
+     let body : Person[] = <Person[]>res;
+       body.forEach(item => item.createdAtM = isNaN(Number(item.createdAt)) ? '' : item.createdAt);
+      return body;
   }
 
   /** GET by id. Will 404 if id not found */
